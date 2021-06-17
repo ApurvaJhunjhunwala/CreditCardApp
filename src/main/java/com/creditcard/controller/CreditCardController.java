@@ -36,7 +36,7 @@ public class CreditCardController {
 	
 	
 	@PostMapping(value = "/addCard/")
-	@ApiOperation(value = "Add Credit Card", notes = "Returns the 200 with card number")
+	@ApiOperation(value = "Add Credit Card", notes = "Returns the 201 with card number")
 	@ApiResponses(value = { 
 			@ApiResponse(code = 500, message = "internal server error") })
 	public ResponseEntity addCard(
@@ -50,6 +50,9 @@ public class CreditCardController {
 	}
 	
 	@GetMapping(value="/getAllCards")
+	@ApiOperation(value = "Get Credit Card", notes = "Returns the 200 with all card number")
+	@ApiResponses(value = { 
+			@ApiResponse(code = 400, message = "No Data Found") })
 	private ResponseEntity<List<CreditCard>> getAllStudents() throws RecordNotFoundException{
 		return new ResponseEntity<List<CreditCard>>(creditCardService.getAllCreditCards(),HttpStatus.OK);
 		
