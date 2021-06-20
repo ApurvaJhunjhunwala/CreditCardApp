@@ -13,7 +13,6 @@ import com.creditcard.demo.CreditCardApplication;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CreditCardApplication.class)
-@AutoConfigureMockMvc
 public class CreditCardApplicationTest {
 	
 	@Test
