@@ -53,7 +53,7 @@ public class CreditCardController {
 	@ApiOperation(value = "Get Credit Card", notes = "Returns the 200 with all card number")
 	@ApiResponses(value = { 
 			@ApiResponse(code = 400, message = "No Data Found") })
-	private ResponseEntity<List<CreditCard>> getAllStudents() throws RecordNotFoundException{
+	private ResponseEntity<List<CreditCard>> getAllCards() throws RecordNotFoundException{
 		return new ResponseEntity<List<CreditCard>>(creditCardService.getAllCreditCards(),HttpStatus.OK);
 		
 	}
