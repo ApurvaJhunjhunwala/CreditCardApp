@@ -22,7 +22,7 @@ public class CreditCard {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	@Size(min = 10, max = 19, groups = CreditCardValidator.CreateCardValidation.class)
 	@Pattern(regexp = "(^[0-9]{19})")
 	private BigInteger cardNumber;
@@ -30,7 +30,7 @@ public class CreditCard {
 	private Integer balance=0;
 	
 	
-	public CreditCard(Long id,String cardnumber,String name, Integer balance) {
+	public CreditCard(Integer id,String cardnumber,String name, Integer balance) {
 		this.id=id;
 		this.cardNumber=new BigInteger(cardnumber);
 		this.balance=balance;
