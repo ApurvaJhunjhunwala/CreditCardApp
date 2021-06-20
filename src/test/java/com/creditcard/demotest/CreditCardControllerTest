@@ -1,0 +1,43 @@
+package com.creditcard.demotest;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.ResponseEntity;
+
+import com.creditcard.controller.CreditCardController;
+import com.creditcard.model.CreditCard;
+
+@SpringBootTest(classes = CreditCardController.class,webEnvironment = WebEnvironment.RANDOM_PORT)
+public class CreditCardControllerTest {
+	
+	@Autowired
+	private LocalServerPort port;
+	
+	@Autowired
+	private TestRestTemplate restTemplate;
+
+	@Test 
+	public void testAllCards() { 
+		ResponseEntity<List<CreditCard>>
+	  responseEntity;
+	  
+	  responseEntity = restTemplate.getForObject("http://localhost:" + port +
+	  "/api/v1/getAllCards", ResponseEntity.class); assertEquals(200,
+	  responseEntity.getStatusCodeValue()); }
+
+	@Test
+	public void testAddCard() {
+		CreditCard card = new CreditCard(1, "12345678903555", "TestApurva", 100);
+		ResponseEntity<String> responseEntity =restTemplate.postForEntity("http://localhost:" + port + "/api/v1/addCard", card, String.class);
+		assertEquals(201, responseEntity.getStatusCodeValue());
+	}
+
+}
