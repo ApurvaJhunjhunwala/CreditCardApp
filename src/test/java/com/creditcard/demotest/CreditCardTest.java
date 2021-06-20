@@ -61,19 +61,6 @@ public class CreditCardServiceTest extends CreditCardApplicationTest {
 		verify(cardRepository, times(1)).save(addCard);
 
 	}
-	/*
-	 * @Test public void testAllEmployees() { ResponseEntity<List<CreditCard>>
-	 * responseEntity;
-	 * 
-	 * responseEntity = this.restTemplate .getForObject("http://localhost:" + port +
-	 * "/api/v1/getAllCards", ResponseEntity<>); assertEquals(200,
-	 * responseEntity.getStatusCodeValue()); }
-	 * 
-	 * @Test public void testAddCard() { CreditCard card = new CreditCard(1,
-	 * "12345678903555", "TestApurva", 100); ResponseEntity<String> responseEntity =
-	 * this.restTemplate .postForEntity("http://localhost:" + port +
-	 * "/api/v1/addCard", card, String.class); assertEquals(201,
-	 * responseEntity.getStatusCodeValue()); }
-	 */
+	
 
 }
